@@ -23,4 +23,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/chef.jfif
+    - assets/Picture.png
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins/Poppins-Regular.ttf
+        - asset: fonts/Poppins/Poppins-Bold.ttf
+          weight: 700

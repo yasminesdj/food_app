@@ -10,21 +10,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        textTheme: TextTheme(
-          bodyMedium: TextStyle(fontFamily: 'Roboto'),
-        ),
+        fontFamily: 'Poppins',
       ),
-      home: const FullScreenImage(),
+      home: const gettingStarted(),
     );
   }
 }
 
-class FullScreenImage extends StatelessWidget {
-  const FullScreenImage({super.key});
+class gettingStarted extends StatelessWidget {
+  const gettingStarted({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,38 +27,50 @@ class FullScreenImage extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/chef.jfif'),
-                  fit: BoxFit.cover,
-                ),
-              ),
+            child: Image.asset(
+              'assets/Picture.png',
+              fit: BoxFit.cover,
             ),
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 20),
                 Text(
-                  'Food',
+                  'Easy To Make Food',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 48, // Increase the font size
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  'Recipes',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 48, // Increase the font size
-                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
                     color: Colors.white,
                   ),
                 ),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 198, 142, 57),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                ),
+                child: const Text(
+                  'Get Started',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
           ),
         ],
