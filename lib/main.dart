@@ -52,7 +52,7 @@ class GettingStarted extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(30.0),
               child: ElevatedButton(
                 onPressed: () {
                   // Navigate to the Home Page
@@ -64,7 +64,7 @@ class GettingStarted extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color.fromARGB(255, 198, 142, 57),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(80),
                   ),
                 ),
                 child: const Text(

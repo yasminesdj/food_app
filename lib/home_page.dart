@@ -29,10 +29,13 @@ class HomePage extends StatelessWidget {
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Search recipe',
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search, color: Colors.grey),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide.none,
+                    borderSide: const BorderSide(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      width: 1.0,
+                    ),
                   ),
                   filled: true,
                   fillColor: Colors.grey[200],
@@ -55,8 +58,8 @@ class HomePage extends StatelessWidget {
                     child: const Text(
                       'View all',
                       style: TextStyle(
-                          color: Color.fromARGB(
-                              255, 91, 86, 86)), // Set text color to black
+                        color: Color.fromARGB(255, 91, 86, 86),
+                      ),
                     ),
                   ),
                 ],
@@ -65,9 +68,9 @@ class HomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildCategoryButton('Trending'),
-                  _buildCategoryButton('New'),
-                  _buildCategoryButton('Popular'),
+                  _buildCategoryButton('Trending', isSelected: false),
+                  _buildCategoryButton('New', isSelected: true),
+                  _buildCategoryButton('Popular', isSelected: false),
                 ],
               ),
               const SizedBox(height: 20),
@@ -79,7 +82,7 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               _buildRecipeCard(
-                'assets/soup2.jpg', // Replace with your actual image path
+                'assets/soup2.jpg',
                 'Another Recipe',
                 'By Chef',
                 '150',
@@ -91,13 +94,18 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryButton(String label) {
+  Widget _buildCategoryButton(String label, {required bool isSelected}) {
+    final selectedColor = const Color.fromARGB(255, 198, 142, 57);
+    final borderColor = const Color.fromARGB(255, 208, 147, 33);
+
     return ElevatedButton(
       onPressed: () {},
       style: ElevatedButton.styleFrom(
-        backgroundColor: label == 'New'
-            ? const Color.fromARGB(255, 198, 142, 57)
-            : Colors.white,
+        backgroundColor: isSelected ? selectedColor : Colors.white,
+        side: BorderSide(
+          color: isSelected ? selectedColor : borderColor.withOpacity(0.5),
+          width: 1.0,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -105,8 +113,7 @@ class HomePage extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          color:
-              label == 'New' ? Colors.white : Color.fromARGB(255, 208, 147, 33),
+          color: isSelected ? Colors.white : borderColor,
         ),
       ),
     );
