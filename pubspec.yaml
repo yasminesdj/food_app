@@ -24,6 +24,8 @@ flutter:
 
   assets:
     - assets/Picture.png
+    - assets/chicken.jfif
+    - assets/soup2.jpg
   fonts:
     - family: Poppins
       fonts:
