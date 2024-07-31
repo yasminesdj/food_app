@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Let’s Cooking',
+          'Let’s start Cooking',
           style: TextStyle(
             color: Color.fromARGB(255, 91, 86, 86),
             fontSize: 24,
